@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
+
+        <!-- include ar.js for A-Frame -->
+        <script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
+
+    </head>
+    <body>
+        <a-scene embedded arjs>
+
+            <!--
+assets are the objects that can be included or linked into your code
+in this example, this includes an obj file and a material mapped file
+notice that "src" is a way to direct the path to the file - the obj and mtl file is within the assets folder
+-->
+            <a-assets>
+                <a-asset-item id="tree-obj" src="assets/textured.obj"></a-asset-item>
+                <a-asset-item id="tree-mtl" src="assets/textured.mtl"></a-asset-item>
+
+                <a-asset-item id="simplebox-obj" src="assets/simplebox.obj"></a-asset-item>
+                <a-asset-item id="simplebox-mtl" src="assets/simplebox.mtl"></a-asset-item>
+
+                <a-asset-item id="simpleCylinders-obj" src="assets/simpleCylinders.obj"></a-asset-item>
+                <a-asset-item id="simpleCylinders-mtl" src="assets/simpleCylinders.mtl"></a-asset-item>
+                
+                
+                <a-asset-item id="volumes-obj" src="assets/volumes.obj"></a-asset-item>
+                <a-asset-item id="volumes-mtl" src="assets/volumes.mtl"></a-asset-item>
+
+                <a-asset-item id="merri_04-obj" src="assets/merri_04.mtl"></a-asset-item>
+                <a-asset-item id="merri_04-mtl" src="assets/merri_04.mtl"></a-asset-item>
+            </a-assets>
+
+
+            <!--
+the entity is where you start linking in your assets
+note, you don't necessarily need to separate out your assets, you can lump it all in entity below
+however, sometimes, it's easier to organize your code by first thinking about all the assets you need, and then calling them when you need
+-->
+            <a-entity scale="1 1 1"
+                      obj-model="obj: #tree-obj; mtl: #tree-mtl" rotation="0 0 0"></a-entity>
+            <a-entity scale="1 1 1"
+                      obj-model="obj: #simplebox-obj; mtl: #simplebox-mtl" rotation="0 0 0"></a-entity>
+
+            <a-entity scale="1 1 1"
+                      obj-model="obj: #simpleCylinders-obj; mtl: #simpleCylinders-mtl" rotation="0 0 0"></a-entity>
+            
+            
+            <a-entity scale="1 1 1"
+                      obj-model="obj: #volumes-obj; mtl: #volumes-mtl" rotation="0 0 0"></a-entity>
+
+            <a-box material='opacity: 0.5;' color="#4CC3D9"></a-box>
+
+
+
+            <!-- define a camera which will move according to the marker position -->
+                        <a-marker-camera preset='hiro'></a-marker-camera>      
+        </a-scene>
+    </body>
+</html>
